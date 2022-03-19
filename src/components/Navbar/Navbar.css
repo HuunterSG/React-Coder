@@ -1,0 +1,23 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 10px;
+}
+
+.titleNav{
+    font-size: 1rem;
+    color: steelblue;
+    text-transform: uppercase;
+}
+
+.btnNav{
+    background-color: blueviolet;
+    padding: 0.5rem;
+    margin: 2px;
+    color: aqua;
+    font-size: 1rem;
+    border-radius: 10px;
+}
