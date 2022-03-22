@@ -1,7 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 .App-header {
-  background-color: #282c34;
+  background-color: #7b879e;
   width: 100%;
+}
+.greeting{
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 15px;
+  color: rgb(84, 84, 84);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  filter: drop-shadow( -1px -1px 2px rgb(0, 255, 251));
 }
