@@ -17,10 +17,11 @@ const ItemList = () => {
     return (
         <div>
             <ul className="ulProducts">
-                {products.map(product => <div key={product.id} ><Item name={product.name} price={product.price} img= {product.img} stock={product.stock}/></div>)}
+                {products.map(product => <li><Item key={product.id} {...product}/></li>)}
             </ul>
             
-        </div>
+        </div> 
+        
     )
 }
 
