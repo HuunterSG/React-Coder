@@ -1,3 +1,4 @@
+import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({name,price,img,stock,description}) => {
@@ -10,15 +11,15 @@ const ItemDetail = ({name,price,img,stock,description}) => {
     }
     
     return (
-        <div>
-            <div>
-                <img src={img} alt="producto"/>
+        <div className="contDetail">
+            <div className="contDetailImg">
+                <img src={img} alt="producto" className="Detailimg"/>
             </div>
-            <div>
-            <h2>{name}</h2>
-            <p>{description}</p>
+            <div className="contDetailText">
+            <h2 className="contDetailTitle">{name}</h2>
+            <p className="contDetailP">{description}</p>
+            <p className="DetailPrice">${price}</p>
             </div>
-            <p>{price}</p>
             <div>
                 <ItemCount initial={0} stock={stock} onAdd={onAdd}/>
             </div>

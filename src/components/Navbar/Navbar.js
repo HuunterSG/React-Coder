@@ -5,7 +5,7 @@ function NavBar(){
     return <>
         <nav className='nav'>
             
-            <NavLink to="/home"className='titleNav'> GamingLand</NavLink>
+            <NavLink to="/"className='titleNav'> GamingLand</NavLink>
             <div className='containerCartBtn'>
             <CartWidget/>
             <NavLink to='/category/gabinete'className='btnNav'>Gabinetes</NavLink>

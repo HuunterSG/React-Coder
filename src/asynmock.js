@@ -76,6 +76,6 @@ export const getProductById = (id) => {
     return new Promise((resolve) => {
         setTimeout(()=> {
             resolve(products.find(prod => prod.id === Number(id) ))
-        }, 1000)
+        })
     })
 };
