@@ -7,9 +7,10 @@
 body{
   background-color: rgb(255, 255, 255);
 }
-.App-header {
+.App{
   background-color: #7b879e;
   width: 100%;
+  min-height: 100vh;
 }
 .greeting{
   text-align: center;

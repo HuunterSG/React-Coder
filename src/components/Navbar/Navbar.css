@@ -9,6 +9,9 @@
 
 .titleNav{
     font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
     color: rgb(182, 31, 144);
     text-transform: uppercase;
     margin: 10px;
@@ -16,7 +19,7 @@
 }
 .containerCartBtn{
     
-    width: 20%;
+    width: 40%;
     display: flex;
     flex-direction: row-reverse;
     align-content: end;
@@ -25,7 +28,8 @@
 .btnNav{
     background-color: blueviolet;
     padding: 0.5rem;
-    margin: 2px;
+    margin: auto;
+    text-decoration: none;
     color: rgb(0, 151, 151);
     font-weight: bold;
     cursor: pointer;
