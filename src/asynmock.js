@@ -68,7 +68,7 @@ export const getProductByType = (typeId) => {
     return new Promise((resolve)=>{
         setTimeout(()=> {
             resolve(products.filter(prod=>prod.category === typeId) )
-        }, 1500)
+        }, 500)
     })
 };
 
