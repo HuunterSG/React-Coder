@@ -1,13 +1,14 @@
-import './ItemDetail.css'
+import { useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
+import './ItemDetail.css'
 
 const ItemDetail = ({name,price,img,stock,description}) => {
-    console.log('estoy en el item detail')
-    console.log(typeof name)
-    console.log(typeof price)
+    
+    const [quantity, setQuantity] = useState (0)
 
-    const onAdd = (quantity) => {
-        console.log(quantity)
+    const handleOnAdd = (count) => {
+        console.log('agregue al carrito '+ count)
+        setQuantity(count)
     }
     
     return (
@@ -21,7 +22,7 @@ const ItemDetail = ({name,price,img,stock,description}) => {
             <p className="DetailPrice">${price}</p>
             </div>
             <div>
-                <ItemCount initial={0} stock={stock} onAdd={onAdd}/>
+                {quantity === 0 ? <ItemCount initial={0} stock={stock} onAdd={handleOnAdd} /> : <button> Go to cart </button> }
             </div>
         </div>
     )

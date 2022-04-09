@@ -8,7 +8,7 @@ const ItemList = ({products}) => {
     return (
         <div>
             <ul className="ulProducts">
-                {products.map(product => <li><Item key={product.id} {...product}/></li>)}
+                {products.map(product => <li key={product.id}><Item  {...product}/></li>)}
             </ul>
             
         </div> 
