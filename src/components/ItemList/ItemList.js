@@ -4,7 +4,7 @@ import Item from "../Item/Item";
 const ItemList = ({products}) => {
     
 
-    console.table(products)
+    
     return (
         <div>
             <ul className="ulProducts">
