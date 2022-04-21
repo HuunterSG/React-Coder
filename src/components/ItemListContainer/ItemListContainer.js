@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import { getProductByType, getProducts } from '../../asynmock'
+import {  getProducts } from '../../services/firebase/firestore'
 import ItemList from "../ItemList/ItemList"
 
 function ItemlistContainer(){
@@ -10,23 +10,13 @@ function ItemlistContainer(){
     const [loading, setLoading] = useState(true)
 
     const {typeId} = useParams()
-
+    console.log(typeId)
     
 
     useEffect(()=>{
-        if(typeId){
+        
             setLoading(true)
-            getProductByType(typeId).then(producs =>{
-                setProducts(producs)
-                
-            }).catch(err=>{
-                console.log(err)
-            }).finally(()=>{
-                setLoading(false)
-            })
-        } else {
-            setLoading(true)
-            getProducts().then(produc => {
+            getProducts(typeId).then(produc => {
                 setProducts(produc)
                 
             }).catch(err => {
@@ -34,7 +24,8 @@ function ItemlistContainer(){
             }).finally(()=>{
                 setLoading(false)
             })
-        }
+        
+        
 
         return (()=>{
             setProducts([])
