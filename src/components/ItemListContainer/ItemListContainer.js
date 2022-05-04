@@ -10,7 +10,7 @@ function ItemlistContainer(){
     const [loading, setLoading] = useState(true)
 
     const {typeId} = useParams()
-    console.log(typeId)
+    
     
 
     useEffect(()=>{

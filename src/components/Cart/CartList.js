@@ -1,38 +1,11 @@
 import { useContext, useState } from "react"
 import ContextCart from "../../context/CartContext"
 import {Link} from 'react-router-dom'
-import { createOrderModifyStock } from "../../services/firebase/firestore"
+
+
 const Cart = () => {
     const {cart, clearCart, removeItem, priceGlobal} = useContext(ContextCart)
-    const [loading, setLoading] = useState(false)
-    
-    const createOrder = () =>{
-        setLoading(true)
-        const objOrder={
-        buyer:{
-
-            name: 'Agustin',
-            phone: '2233112233',
-            email: 'agustinjperez.r@gmail.com'
-        },
-        items: cart,
-        total: priceGlobal() 
-        }
-
-        createOrderModifyStock(cart,objOrder).then(id => {
-            clearCart()
-            alert(`Se ha generado su orden corractamente, no olvide anotar su numero de comprobante: ${id}` )
-        }).catch((error)=>{
-            //generar modals de notificaciones paraa errores y alertas!!!
-            console.log(error)
-        }).finally(()=>{
-            setLoading(false)
-        })
-    }
-    if (loading){
-        return <h2>Su orden se esta procesando, Gracias por comprar con nosotros</h2>
-    }
-
+   
     
     return (
         <div>
@@ -51,10 +24,11 @@ const Cart = () => {
                                         </div>
                                         </li>)}
             </ul>
-
+            
             {cart != 0 ?<div>
                 <h2>Su compra total serie de: ${priceGlobal()}</h2>
-                <button onClick={createOrder}>Finalizar Compra</button>
+                {/* <button onClick={createOrder}>Finalizar Compra</button> */}
+                <Link to='/Formulario'>Completar datos para finalizar compra</Link>
             </div> :    
             <div> 
                 <p >Gracias por realizar su compra</p>

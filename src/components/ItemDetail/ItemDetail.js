@@ -11,7 +11,7 @@ const ItemDetail = ({id, name,price,img,stock,description}) => {
     const {addItem} = useContext(ContextCart)
 
     const handleOnAdd = (count) => {
-        console.log('agregue al carrito '+ count)
+        
         setQuantity(count)
         addItem({id,name,price,img}, count)
     }

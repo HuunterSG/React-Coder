@@ -3,7 +3,7 @@ import { firestoreDb } from './index'
 import { createAdaptedCat  } from '../../adapter/categories'
 
 
-//toma los productos
+
 export const getProducts  = (typeId) => {
     return new Promise ((resolve,reject) => {
         const collectionRef = typeId
@@ -15,8 +15,8 @@ export const getProducts  = (typeId) => {
             return { id: doc.id, ...doc.data() }
             
         })
-             resolve(products)
-             console.log(products)
+            resolve(products)
+            
     }).catch(error => {
         reject(error)
     })
@@ -24,7 +24,7 @@ export const getProducts  = (typeId) => {
 }
 
 
-// va al detalle del producto
+
 export const getProductById = (id) => {
     return new Promise((resolve, reject) => {
         const docRef = doc(firestoreDb, 'products', id)
@@ -38,7 +38,7 @@ export const getProductById = (id) => {
     })
 }
 
-//muestra laas categorias
+
 export const getCategories = () => {
     return new Promise((resolve,reject) =>{
         const collectionRef= collection(firestoreDb, 'category')
@@ -92,7 +92,7 @@ export const createOrderModifyStock = (cart,objOrder) => {
                 batch.commit()
                 resolve(id)
             }).catch(error=>{
-                resolve(error)
+                reject(error)
             })
     })
 }
