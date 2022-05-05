@@ -1,3 +1,4 @@
+import './form.css'
 import { useState, useContext } from "react"
 import ContextCart from "../../context/CartContext"
 import { Link } from "react-router-dom"
@@ -58,47 +59,47 @@ const Formulario =()=> {
         })
     }
     if (loading){
-        return <h2>Su orden se esta procesando, Gracias por comprar con nosotros</h2>
+        return <h2 className="loading">Su orden se esta procesando, Gracias por comprar con nosotros</h2>
     }
 
     if(orderId){
-        return <div>
-                    <h2>Este es su comprobante:</h2>
-                    <p>{orderId}</p> 
-                    <p>No olvide guardarlo, por cualquier consulta o reclamo</p>
-                    <Link to='/'>Volver a la tienda</Link>
+        return <div className='comprobante'>
+                    <h2 className='compT'>Este es su comprobante:</h2>
+                    <p className='compId'>{orderId}</p> 
+                    <p className='compP'>No olvide guardarlo, por cualquier consulta o reclamo</p>
+                    <Link to='/' className='cardBtn'>Volver a la tienda</Link>
                 </div>
     }
 
     
     return(
-         <div>
-                        <h2>Ingrese sus datos para finalizar su compra</h2>
-                        <h2>Detalle:</h2>
-                        <ul>
-                            {cart.map(prod=> <li key={prod.id}>
-                                <p>{prod.name}</p>
-                                <p>{prod.quantity}</p>
-                                <p>{prod.quantity * prod.price}</p>
-                            </li>)}
-                        </ul>
-                        <p>Valor total de su compra: ${priceGlobal()}</p>
+         <div className='form'>
+                        <form onSubmit={submit} className='formulario'>
+                        <h2 className='titleForm'>Ingrese sus datos para finalizar su compra</h2>
+                            
+                            <input className='input' type="text" name="name" placeholder="Nombre:" onChange={formE} value={datos.name} required/>
+                            
+                            <input className='input' type="number" name="dni" placeholder="DNI:" onChange={formE} value={datos.dni} required />
+                            
+                            <input className='input' type="number" name="telefono" placeholder="Telefono:" onChange={formE} value={datos.telefono} required />
+                            
+                            <input className='input' type="email" name="email" placeholder="ejemplo555@gmail.com" onChange={formE} value={datos.email} required />
 
-                        <form onSubmit={submit}>
+                            <input className='input' type="text" name="direccion" placeholder="Direccion" onChange={formE} value={datos.direccion} required />
                             
-                            <input type="text" name="name" placeholder="Nombre:" onChange={formE} value={datos.name} required/>
-                            
-                            <input type="number" name="dni" placeholder="DNI:" onChange={formE} value={datos.dni} required />
-                            
-                            <input type="number" name="telefono" placeholder="Telefono:" onChange={formE} value={datos.telefono} required />
-                            
-                            <input type="email" name="email" placeholder="ejemplo555@gmail.com" onChange={formE} value={datos.email} required />
-
-                            <input type="text" name="direccion" placeholder="Direccion" onChange={formE} value={datos.direccion} required />
-                            
-                            <button type="submit" >Enviar</button>
+                            <button type="submit" className='cardBtn' >Finalizar compra</button>
                         </form>
-                    </div>
+                        <ul className='detailUl'>
+                        <h2 className='detail'>Detalle:</h2>
+                            {cart.map(prod=> <li key={prod.id} className='datailLi'>
+                                <p className='detailT'>{prod.name}</p>
+                                <p className='detail2'>{prod.quantity}</p>
+                                <p className='detailT'>{prod.quantity * prod.price}</p>
+                            </li>)}
+                        <p className='detail'>Valor total de su compra: ${priceGlobal()}</p>
+                        </ul>
+
+        </div>
     )
 }
 

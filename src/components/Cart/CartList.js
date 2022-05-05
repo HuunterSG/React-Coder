@@ -9,7 +9,7 @@ const Cart = () => {
     
     return (
         <div>
-            <h2>My Cart</h2>
+            <h2 className='cardTitle'>My Cart</h2>
             <ul className="ulProducts">
                 {cart.map(prod=> <li key={prod.id}>
                                         <div className='card'>
@@ -26,13 +26,13 @@ const Cart = () => {
             </ul>
             
             {cart != 0 ?<div>
-                <h2>Su compra total serie de: ${priceGlobal()}</h2>
+                <h2 className="DetailPrice">Su compra total serie de: ${priceGlobal()}</h2>
                 {/* <button onClick={createOrder}>Finalizar Compra</button> */}
-                <Link to='/Formulario'>Completar datos para finalizar compra</Link>
+                <Link to='/Formulario' className="cardBtn">Completar datos para finalizar compra</Link>
             </div> :    
             <div> 
                 <p >Gracias por realizar su compra</p>
-                <Link className='cardPrice' to='/'>Ir a la tienda</Link>
+                <Link className='cardBtn' to='/'>Ir a la tienda</Link>
             </div>}
 
             <button onClick={clearCart} className='cardBtn'> vaciar carrito </button>

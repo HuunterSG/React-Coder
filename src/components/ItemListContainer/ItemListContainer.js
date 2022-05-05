@@ -34,11 +34,11 @@ function ItemlistContainer(){
     }, [typeId],)
 
     if(loading){
-        return <h2>Cargando...</h2>
+        return <h2 className='loading'>Cargando...</h2>
     }
 
     if(products.length === 0){
-        return <h2>Productos no disponibles por el momento.</h2>
+        return <h2 className='prodNot'>Productos no disponibles por el momento.</h2>
     }
 
     return(
